@@ -41,6 +41,11 @@ function Particle(x, y, m) {
       this.vel.x *= -1;
       this.pos.x = width;
     }
+
+    if (this.pos.x < 0) {
+      this.vel.x *= -1;
+      this.pos.x = 0;
+    }
   }
 }
 
