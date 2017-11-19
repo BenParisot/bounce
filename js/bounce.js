@@ -1,11 +1,28 @@
-var particle1;
-var particle2;
+// var particle1;
+// var particle2;
+var particles = [];
+
+// var p;
 
 function setup() {
   createCanvas(640, 360);
-  particle1 = new Particle(200, 100, 2);
-  particle2 = new Particle(400, 100, 6);
+  // for (var i = 0; i <= 10; i ++){
+	// particles[i] = new Particle(random(width), 100, random(1, 5));
+	// }
+  // particle2 = new Particle(400, 100, 6);
+	// p = new Particle(200, 100, 2);
 }
+
+function mousePressed() {
+	var p = new Particle(random(width), 100, random(1, 5));
+	particles.push(p);
+}
+
+// function mouse() {
+// 	var gravityP = createVector(0, 0.25*p.mass);
+// 	p.applyForce(gravityP);
+//
+// }
 
 function Particle(x, y, m) {
   this.pos = createVector(x, y);
@@ -27,7 +44,8 @@ function Particle(x, y, m) {
   }
 
   this.display = function() {
-    fill(255);
+		var c = color(random(1, 250), random(57), random(100));
+		fill(c);
     ellipse(this.pos.x, this.pos.y, this.mass*10, this.mass*10);
   }
 
@@ -53,24 +71,31 @@ function draw() {
  background(51);
 
  var wind = createVector(.5, 0);
+ for (var i = 0; i < particles.length; i ++){
+	 var gravity = createVector(0, 0.25*particles[i].mass);
+	 particles[i].applyForce(gravity);
+	 // var gravity2 = createVector(0, 0.25*particle2.mass);
+	 // particle2.applyForce(gravity2);
 
- var gravity1 = createVector(0, 0.25*particle1.mass);
- particle1.applyForce(gravity1);
- var gravity2 = createVector(0, 0.25*particle2.mass);
- particle2.applyForce(gravity2);
 
- if (mouseIsPressed) {
-   particle1.applyForce(wind);
-   particle2.applyForce(wind);
+
+	 if (mouseIsPressed) {
+	   particles[i].applyForce(wind);
+	  //  particle2.applyForce(wind);
+		//  mouse();
+
+	 }
+
+	 particles[i].update();
+	 // particle2.update();
+	 // p.update();
+
+	 particles[i].edges();
+	 // particle2.edges();
+	 // p.edges();
+
+	 particles[i].display();
+	 // particle2.display();
+	 // p.display();
  }
-// particle.applyForce(wind);
-
- particle1.update();
- particle2.update();
-
- particle1.edges();
- particle2.edges();
- particle1.display();
- particle2.display();
-
 }
