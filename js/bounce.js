@@ -1,3 +1,8 @@
+// $(document).ready(function() {
+// 	$(".hello").fadeTo(1000, 1);
+// });
+
+
 // var particle1;
 // var particle2;
 var particles = [];
@@ -5,7 +10,11 @@ var particles = [];
 // var p;
 
 function setup() {
-  createCanvas(640, 360);
+	var cnv = createCanvas(600, 350);
+	var x = (windowWidth - width) / 2;
+	var y = (windowHeight - height) / 2;
+	cnv.position(x, y);
+
   // for (var i = 0; i <= 10; i ++){
 	// particles[i] = new Particle(random(width), 100, random(1, 5));
 	// }
@@ -13,8 +22,11 @@ function setup() {
 	// p = new Particle(200, 100, 2);
 }
 
+
+
+
 function mousePressed() {
-	var p = new Particle(random(width), 100, random(1, 5));
+	var p = new Particle(random(width), -5, random(1, 5));
 	particles.push(p);
 }
 
@@ -44,9 +56,9 @@ function Particle(x, y, m) {
   }
 
   this.display = function() {
-		var c = color(random(1, 250), random(57), random(100));
+		var c = color(0, 0, 255);
 		fill(c);
-    ellipse(this.pos.x, this.pos.y, this.mass*10, this.mass*10);
+    ellipse(this.pos.x, this.pos.y, 2, 10);
   }
 
   this.edges = function() {
@@ -68,7 +80,7 @@ function Particle(x, y, m) {
 }
 
 function draw() {
- background(51);
+ background(200);
 
  var wind = createVector(.5, 0);
  for (var i = 0; i < particles.length; i ++){
@@ -80,7 +92,7 @@ function draw() {
 
 
 	 if (mouseIsPressed) {
-	   particles[i].applyForce(wind);
+	   // particles[i].applyForce(wind);
 	  //  particle2.applyForce(wind);
 		//  mouse();
 
@@ -90,7 +102,7 @@ function draw() {
 	 // particle2.update();
 	 // p.update();
 
-	 particles[i].edges();
+	 // particles[i].edges();
 	 // particle2.edges();
 	 // p.edges();
 
