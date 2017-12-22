@@ -1,14 +1,5 @@
-// $(document).ready(function() {
-// 	$(".hello").fadeTo(1000, 1);
-// });
 var bg;
-
-
-// var particle1;
-// var particle2;
 var particles = [];
-
-// var p;
 
 function setup() {
 	bg = loadImage("img/cloudback.jpg");
@@ -16,12 +7,6 @@ function setup() {
 	var x = 400;
 	var y = 200;
 	cnv.position(x, y);
-
-  // for (var i = 0; i <= 10; i ++){
-	// particles[i] = new Particle(random(width), 100, random(1, 5));
-	// }
-  // particle2 = new Particle(400, 100, 6);
-	// p = new Particle(200, 100, 2);
 }
 
 
@@ -31,12 +16,6 @@ function mousePressed() {
 	var p = new Particle(random(width), -5, random(1, 5));
 	particles.push(p);
 }
-
-// function mouse() {
-// 	var gravityP = createVector(0, 0.25*p.mass);
-// 	p.applyForce(gravityP);
-//
-// }
 
 function Particle(x, y, m) {
   this.pos = createVector(x, y);
@@ -88,28 +67,12 @@ function draw() {
  for (var i = 0; i < particles.length; i ++){
 	 var gravity = createVector(0, 0.25*particles[i].mass);
 	 particles[i].applyForce(gravity);
-	 // var gravity2 = createVector(0, 0.25*particle2.mass);
-	 // particle2.applyForce(gravity2);
-
-
-
+	 
 	 if (mouseIsPressed) {
-	   // particles[i].applyForce(wind);
-	  //  particle2.applyForce(wind);
-		//  mouse();
-
+		 // can apply wind here if wanted
 	 }
 
 	 particles[i].update();
-	 // particle2.update();
-	 // p.update();
-
-	 // particles[i].edges();
-	 // particle2.edges();
-	 // p.edges();
-
 	 particles[i].display();
-	 // particle2.display();
-	 // p.display();
  }
 }
