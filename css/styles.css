@@ -4,16 +4,21 @@ body {
 	justify-content: center;
 	align-items: center;*/
 	background-image: url("../img/background.jpg");
+	background-repeat: no-repeat;
 	user-select: none;
 }
 
 h1 {
 	font-size: 45px;
 	text-align: center;
+	font-family: 'Pangolin', cursive;
+	margin-top: 50px;
 }
 
 p {
 	text-align: center;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
 }
 
 img {

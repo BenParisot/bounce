@@ -1,6 +1,7 @@
 // $(document).ready(function() {
 // 	$(".hello").fadeTo(1000, 1);
 // });
+var bg;
 
 
 // var particle1;
@@ -10,9 +11,10 @@ var particles = [];
 // var p;
 
 function setup() {
-	var cnv = createCanvas(600, 350);
-	var x = (windowWidth - width) / 2;
-	var y = (windowHeight - height) / 2;
+	bg = loadImage("img/cloudback.jpg");
+	var cnv = createCanvas(300, 150);
+	var x = 400;
+	var y = 200;
 	cnv.position(x, y);
 
   // for (var i = 0; i <= 10; i ++){
@@ -80,7 +82,7 @@ function Particle(x, y, m) {
 }
 
 function draw() {
- background(200);
+ background(bg);
 
  var wind = createVector(.5, 0);
  for (var i = 0; i < particles.length; i ++){
