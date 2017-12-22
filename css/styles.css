@@ -1,6 +1,9 @@
 body {
 	background-image: url("../img/background.jpg");
 	background-repeat: no-repeat;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 
