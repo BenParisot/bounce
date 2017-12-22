@@ -58,7 +58,7 @@ function Particle(x, y, m) {
   }
 
   this.display = function() {
-		var c = color(0, 0, 255);
+		var c = color(135, 206, 250);
 		fill(c);
     ellipse(this.pos.x, this.pos.y, 2, 10);
   }
